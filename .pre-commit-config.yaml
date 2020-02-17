@@ -1,0 +1,32 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: check-yaml
+      - id: check-added-large-files
+
+  - repo: git://github.com/dnephin/pre-commit-golang
+    rev: master
+    hooks:
+      - id: go-fmt
+      - id: go-cyclo
+        args: [-over=15]
+      - id: no-go-testing
+      - id: golangci-lint
+      - id: go-imports
+
+  - repo: https://github.com/tekwizely/pre-commit-golang
+    rev: master
+    hooks:
+      - id: go-imports
+      - id: go-returns
+
+  - repo: git://github.com/Bahjat/pre-commit-golang
+    rev: master
+    hooks:
+      # - id: go-lint
+      - id: go-fmt-import
+      - id: gofumpt
+      - id: go-err-check
+      - id: go-static-check
